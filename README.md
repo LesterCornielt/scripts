@@ -41,10 +41,10 @@ Este repositorio contiene utilidades en forma de scripts. Por ahora incluye un �
 
 - Antes de ejecutar el script:
   
-  ![Antes](./screenshots/before_screenshot_renamer.png)
+  <img src="./screenshots/before_screenshot_renamer.png" alt="Antes" width="420" />
 
 - Después de ejecutar el script (renombrado por fecha detectada):
 
-  ![Después](./screenshots/after_screenshot_renamer.png)
+  <img src="./screenshots/after_screenshot_renamer.png" alt="Después" width="420" />
 
 
