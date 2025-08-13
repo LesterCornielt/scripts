@@ -1,5 +1,7 @@
 ## Scripts
 
+Repositorio donde invertí horas de automatización en scripts para no hacer tareas manuales durante 10 minutos.
+
 Este repositorio contiene utilidades en forma de scripts. Por ahora incluye un único script:
 
 - **`screenshot-renamer.sh`**: renombra imágenes `.jpg`/`.jpeg` detectando la fecha directamente desde el contenido de la imagen mediante OCR, y genera nombres en el formato `DD-MM-YYYY[_N].ext` (donde `[_N]` se añade automáticamente para evitar colisiones).
