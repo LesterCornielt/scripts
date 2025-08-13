@@ -1,10 +1,15 @@
 ## Scripts
 
+Idioma/Language/Idioma:
+- Español: Este README está en español. Si prefieres otro idioma, cambia a la rama `en` (English) o `pt` (Português).
+- English: This README is in Spanish. If you prefer another language, switch to branch `en` (English) or `pt` (Português).
+- Português: Este README está em espanhol. Se preferir outro idioma, mude para a branch `en` (English) ou `pt` (Português).
+
 Repositorio donde invertí horas de automatización en scripts para no hacer tareas manuales durante 10 minutos.
 
 Este repositorio contiene utilidades en forma de scripts. Por ahora incluye un único script:
 
-- **`screenshot-renamer.sh`**: renombra imágenes `.jpg`/`.jpeg` detectando la fecha directamente desde el contenido de la imagen mediante OCR, y genera nombres en el formato `DD-MM-YYYY[_N].ext` (donde `[_N]` se añade automáticamente para evitar colisiones).
+- **`screenshot-renamer.sh`**: renombra imágenes `.jpg`/`.jpeg` detectando la fecha directamente desde el contenido de la imagen mediante OCR, y genera nombres en el formato `DD-MM-YYYY[_N].ext` (donde `[_N]` se añade automáticamente para evitar colisiones). Lo hice para no tener que renombrar a mano cada screenshot de mis gym logs donde trackeo el progreso por entreno
 
 ### `screenshot-renamer.sh`
 
