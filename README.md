@@ -1,55 +1,54 @@
 ## Scripts
 
-Idioma/Language/Idioma:
-- Español: Este README está en español. Si prefieres otro idioma, cambia a la rama `en` (English) o `pt` (Português).
-- English: This README is in Spanish. If you prefer another language, switch to branch `en` (English) or `pt` (Português).
-- Português: Este README está em espanhol. Se preferir outro idioma, mude para a branch `en` (English) ou `pt` (Português).
+Language/Idioma/Idioma:
+- Español: Este README está en inglés. Si prefieres otro idioma, cambia a la rama `es` (Español) o `pt` (Português).
+- English: This README is in English. If you prefer another language, switch to branch `es` (Español) or `pt` (Português).
+- Português: Este README está em inglês. Se preferir outro idioma, mude para a branch `es` (Español) ou `pt` (Português).
 
-Repositorio donde invertí horas de automatización en scripts para no hacer tareas manuales durante 10 minutos.
+A repo where I spent hours automating tasks so I don't have to do 10 minutes of manual work.
 
-Este repositorio contiene utilidades en forma de scripts. Por ahora incluye un único script:
+This repository contains utility scripts. For now, it includes a single script:
 
-- **`screenshot-renamer.sh`**: renombra imágenes `.jpg`/`.jpeg` detectando la fecha directamente desde el contenido de la imagen mediante OCR, y genera nombres en el formato `DD-MM-YYYY[_N].ext` (donde `[_N]` se añade automáticamente para evitar colisiones). Lo hice para no tener que renombrar a mano cada screenshot de mis gym logs donde trackeo el progreso por entreno
+- **`screenshot-renamer.sh`**: renames `.jpg`/`.jpeg` images by detecting the date directly from the image content via OCR, and generates names in the format `DD-MM-YYYY[_N].ext` (where `[_N]` is added automatically to avoid collisions). I built it so I don't have to manually rename every screenshot of my gym logs where I track workout-by-workout progress.
 
 ### `screenshot-renamer.sh`
 
-- **Qué hace**: 
-  - Busca una fecha en la imagen usando Tesseract OCR (ES/EN) y diferentes patrones de fecha (ISO `YYYY-MM-DD`, `DD-MM-YYYY`, `DD de Mes de YYYY`, `Month DD, YYYY`, etc.).
-  - Si encuentra una fecha, renombra el archivo como `DD-MM-YYYY.ext`. Si ese nombre ya existe, crea `DD-MM-YYYY_1.ext`, `DD-MM-YYYY_2.ext`, etc.
-  - Solo procesa archivos con extensión `.jpg` o `.jpeg`.
+- **What it does**:
+  - Looks for a date in the image using Tesseract OCR (ES/EN) and different date patterns (ISO `YYYY-MM-DD`, `DD-MM-YYYY`, `DD de Mes de YYYY`, `Month DD, YYYY`, etc.).
+  - If a date is found, it renames the file as `DD-MM-YYYY.ext`. If that name already exists, it creates `DD-MM-YYYY_1.ext`, `DD-MM-YYYY_2.ext`, etc.
+  - Only processes files with `.jpg` or `.jpeg` extension.
 
-- **Requisitos**:
-  - `tesseract` (obligatorio)
-  - `convert` de ImageMagick (opcional, mejora el preprocesado de la imagen para un OCR más fiable)
+- **Requirements**:
+  - `tesseract` (required)
+  - `convert` from ImageMagick (optional, improves image preprocessing for more reliable OCR)
 
-- **Uso**:
-  - Ayuda rápida: `./screenshot-renamer.sh --help`
-  - Procesar todas las imágenes `.jpg/.jpeg` del directorio actual:
+- **Usage**:
+  - Quick help: `./screenshot-renamer.sh --help`
+  - Process all `.jpg/.jpeg` images in the current directory:
     ```bash
     ./screenshot-renamer.sh
     ```
-  - Procesar archivos específicos:
+  - Process specific files:
     ```bash
     ./screenshot-renamer.sh foto1.jpg otra_carpeta/foto2.jpeg
     ```
 
-- **Instalación/permiso de ejecución**:
+- **Installation/execution permission**:
   ```bash
   chmod +x screenshot-renamer.sh
   ```
 
-- **Notas**:
-  - Si no se detecta fecha en la imagen, el archivo se omite sin cambios.
-  - El preprocesado (escala de grises, contraste, afinado y umbral) se aplica cuando `convert` está disponible para mejorar el OCR.
+- **Notes**:
+  - If no date is detected in the image, the file is left unchanged.
+  - Preprocessing (grayscale, contrast, sharpening and threshold) is applied when `convert` is available to improve OCR.
 
-### Demostración
+### Demo
 
-- Antes de ejecutar el script:
+- Before running the script:
   
-  <img src="./screenshots/before_screenshot_renamer.png" alt="Antes" width="420" />
+  <img src="./screenshots/before_screenshot_renamer.png" alt="Before" width="420" />
 
-- Después de ejecutar el script (renombrado por fecha detectada):
+- After running the script (renamed by detected date):
 
-  <img src="./screenshots/after_screenshot_renamer.png" alt="Después" width="420" />
-
+  <img src="./screenshots/after_screenshot_renamer.png" alt="After" width="420" />
 
