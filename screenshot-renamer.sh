@@ -7,8 +7,8 @@ SCRIPT_NAME="$(basename "$0")"
  
 
 print_usage() {
-  echo "Uso: $SCRIPT_NAME [archivo1.jpg ...]"
-  echo "  - Procesa .jpg/.jpeg del directorio actual si no se pasan archivos."
+  echo "Uso: $SCRIPT_NAME [archivo1.png ...]"
+  echo "  - Procesa .png del directorio actual si no se pasan archivos."
   echo "  - Extrae la fecha via OCR y renombra: 'DD-MM-YYYY.ext'"
 }
 
@@ -50,7 +50,7 @@ done
 require_cmd tesseract
 
 # Reunir archivos objetivo
-declare -a FILES
+declare -a FILES=()
 if [[ $# -gt 0 ]]; then
   for f in "$@"; do
     if [[ -f "$f" ]]; then
@@ -60,11 +60,11 @@ if [[ $# -gt 0 ]]; then
 else
   while IFS= read -r -d '' f; do
     FILES+=("$f")
-  done < <(find . -maxdepth 1 -type f \( -iname '*.jpg' -o -iname '*.jpeg' \) -print0)
+  done < <(find . -maxdepth 1 -type f -iname '*.png' -print0)
 fi
 
 if [[ ${#FILES[@]} -eq 0 ]]; then
-  echo "No se encontraron archivos .jpg/.jpeg para procesar."
+  echo "No se encontraron archivos .png para procesar."
   exit 0
 fi
 
@@ -173,10 +173,10 @@ extract_date_iso() {
   return 1
 }
 
-# Comprobar si el archivo ya está en formato final: DD-MM-YYYY[_N].(jpg|jpeg)
+# Comprobar si el archivo ya está en formato final: DD-MM-YYYY[_N].png
 has_final_name() {
   local name="$1"
-  [[ "$name" =~ ^[0-3][0-9]-[01][0-9]-[12][0-9]{3}(_[0-9]+)?\.(jpg|jpeg|JPG|JPEG)$ ]]
+  [[ "$name" =~ ^[0-3][0-9]-[01][0-9]-[12][0-9]{3}(_[0-9]+)?\.(png|PNG)$ ]]
 }
 
 # Generar nombre destino evitando colisiones
@@ -206,7 +206,7 @@ process_file() {
   filename="$(basename -- "$filepath")"
 
   # Separar extensión
-  if [[ "$filename" =~ \.(jpg|jpeg|JPG|JPEG)$ ]]; then
+  if [[ "$filename" =~ \.(png|PNG)$ ]]; then
     ext=".${filename##*.}"
     base="${filename%.*}"
   else
